@@ -9,16 +9,22 @@ const HomeScreen = ({ navigation }) => {
       <Text>Home Screen</Text>
       <Button
         title="Pergi ke Progate"
-        onPress={() => navigation.navigate('Progate')}
+        onPress={() => {
+          navigation.navigate('Progate', {
+            name: 'Ninja Ken',
+            language: 'React Native',
+          })
+        }}
       />
     </View>
   )
 }
 
-const ProgateScreen = ({ navigation }) => {
+const ProgateScreen = ({ route, navigation }) => {
   return (
     <View style={styles.container}>
-      <Text>Welcome to Progate!</Text>
+      <Text>Welcome to Progate, {route.params.name}!</Text>
+      <Text>Ayo belajar {route.params.language}!</Text>
       <Button title="Kembali" onPress={() => navigation.goBack()} />
     </View>
   )
