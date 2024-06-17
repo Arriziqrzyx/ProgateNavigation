@@ -2,6 +2,7 @@ import React from 'react'
 import { View, Text, StyleSheet, Button } from 'react-native'
 import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
+import { StatusBar } from 'expo-status-bar'
 
 const HomeScreen = ({ navigation }) => {
   return (
@@ -37,7 +38,20 @@ const App = () => {
     <NavigationContainer>
       <Stack.Navigator initialRouteName='Home'>
         <Stack.Screen name="Home" component={HomeScreen} />
-        <Stack.Screen name="Progate" component={ProgateScreen} />
+        <Stack.Screen
+          name="Progate"
+          component={ProgateScreen}
+          options={{
+            title: 'Progate React Native',
+            headerStyle: {
+              backgroundColor: '#380953',
+            },
+            headerTintColor: '#fff',
+            headerTitleStyle: {
+              fontWeight: 'bold',
+            },
+          }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   )
